@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atsadawut Prasankham | Portfolio — Data Analyst · Web Dev · Software Dev · QA</title>
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: #161f33;
+      --bg-card-hover: #1d2942;
+      --bg-glass: rgba(17, 24, 39, 0.84);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --border-color: rgba(148, 163, 184, 0.16);
+      --accent-da: #38bdf8;
+      --accent-web: #818cf8;
+      --accent-dev: #34d399;
+      --accent-qa: #fbbf24;
+      --accent-primary: #38bdf8;
+      --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 55%, #34d399 100%);
+      --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.55);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Thai', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    }
+
+    html[data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --bg-glass: rgba(255, 255, 255, 0.88);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --border-color: rgba(15, 23, 42, 0.12);
+      --accent-da: #0284c7;
+      --accent-web: #4f46e5;
+      --accent-dev: #059669;
+      --accent-qa: #d97706;
+      --accent-primary: #0284c7;
+      --shadow-lg: 0 16px 32px -12px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--accent-primary);
+      text-decoration: none;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    a:hover {
+      opacity: 0.85;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -180px;
+      right: -180px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, rgba(129, 140, 248, 0.06) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-glow-left {
+      position: fixed;
+      bottom: -200px;
+      left: -180px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(52, 211, 153, 0.1) 0%, rgba(56, 189, 248, 0.05) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Sticky Top Navigation */
+    header.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+    }
+
+    .brand-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--accent-gradient);
+      display: grid;
+      place-items: center;
+      color: #0b0f19;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-primary);
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .btn-chip {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      padding: 0.42rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-chip:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-1px);
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    @media (max-width: 920px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 2.25rem 0 1.75rem;
+      }
+    }
+
+    .availability-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.38rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      color: var(--accent-dev);
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-dev);
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.65rem;
+    }
+
+    .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.08rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.35rem;
+      max-width: 660px;
+    }
+
+    /* Priority Role Selector Strip */
+    .priority-strip-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .role-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .role-tab {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.52rem 0.95rem;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+    }
+
+    .role-tab .rank-badge {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      padding: 0.1rem 0.42rem;
+      border-radius: 6px;
+      background: rgba(148, 163, 184, 0.16);
+      color: var(--text-primary);
+    }
+
+    .role-tab:hover {
+      border-color: var(--accent-primary);
+      color: var(--text-primary);
+    }
+
+    .role-tab.active {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: var(--accent-primary);
+      color: var(--text-primary);
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.18);
+    }
+
+    .role-tab.active .rank-badge {
+      background: var(--accent-primary);
+      color: #0b0f19;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #0b0f19;
+      font-weight: 700;
+      padding: 0.72rem 1.3rem;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -8px rgba(56, 189, 248, 0.5);
+      opacity: 0.96;
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      font-weight: 600;
+      padding: 0.72rem 1.15rem;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-primary);
+      background: var(--bg-card-hover);
+    }
+
+    /* Hero Right Summary Card */
+    .profile-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent-gradient);
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .profile-header h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .uni-tag {
+      font-size: 0.78rem;
+      color: var(--accent-da);
+      background: rgba(56, 189, 248, 0.12);
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .quick-facts {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .fact-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+    }
+
+    .fact-label {
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .fact-value {
+      color: var(--text-primary);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .priority-bars {
+      border-top: 1px solid var(--border-color);
+      padding-top: 1rem;
+    }
+
+    .priority-bars-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+      font-weight: 700;
+    }
+
+    .p-bar-item {
+      margin-bottom: 0.6rem;
+    }
+
+    .p-bar-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 0.22rem;
+    }
+
+    .p-bar-track {
+      height: 7px;
+      background: rgba(148, 163, 184, 0.15);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .p-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+
+    /* Section Headings */
+    section {
+      padding: 2.75rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-primary);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.45rem, 2.5vw, 1.95rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      max-width: 560px;
+    }
+
+    /* Role Positioning Cards (4 Target Roles) */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .roles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .roles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .role-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.35rem;
+      transition: all 0.25s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .role-card:hover, .role-card.highlighted {
+      transform: translateY(-4px);
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .role-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .role-priority-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+    }
+
+    .tag-p1 { background: rgba(56, 189, 248, 0.16); color: var(--accent-da); }
+    .tag-p2 { background: rgba(129, 140, 248, 0.16); color: var(--accent-web); }
+    .tag-p3 { background: rgba(52, 211, 153, 0.16); color: var(--accent-dev); }
+    .tag-p4 { background: rgba(251, 191, 36, 0.16); color: var(--accent-qa); }
+
+    .role-card h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+
+    .role-card p {
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.9rem;
+    }
+
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.38rem;
+    }
+
+    .mini-tag {
+      font-size: 0.74rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 6px;
+      background: rgba(148, 163, 184, 0.12);
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.35rem;
+    }
+
+    @media (max-width: 980px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .github-link-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.28rem 0.68rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-primary);
+      white-space: nowrap;
+    }
+
+    .project-tagline {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .project-lens-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.95rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .lens-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-primary);
+      margin-bottom: 0.45rem;
+    }
+
+    .project-bullets {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .project-bullets li {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .project-bullets li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+      font-weight: bold;
+    }
+
+    .tech-stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.42rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Interactive Sandbox Section (DA + NLP ETL Demo) */
+    .sandbox-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.35rem;
+    }
+
+    @media (max-width: 920px) {
+      .sandbox-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sandbox-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .sandbox-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .dataset-tabs {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .dataset-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.36rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .dataset-btn.active {
+      background: var(--accent-primary);
+      color: #0b0f19;
+      border-color: var(--accent-primary);
+    }
+
+    .chart-bars-container {
+      display: grid;
+      gap: 0.7rem;
+      margin: 1rem 0;
+    }
+
+    .chart-row {
+      display: grid;
+      grid-template-columns: 135px 1fr 70px;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.84rem;
+    }
+
+    .chart-bar-bg {
+      height: 12px;
+      background: var(--bg-secondary);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .chart-bar-fill {
+      height: 100%;
+      background: var(--accent-gradient);
+      border-radius: 999px;
+      transition: width 0.45s ease;
+    }
+
+    .insight-callout {
+      background: var(--bg-secondary);
+      border-left: 3px solid var(--accent-primary);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 0.9rem;
+    }
+
+    /* Smart Input NLP & QA Validator Simulator */
+    .parser-input-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .parser-input {
+      flex: 1;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.6rem 0.85rem;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .preset-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .preset-pill {
+      font-size: 0.75rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.24rem 0.6rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .preset-pill:hover {
+      border-color: var(--accent-primary);
+      color: var(--text-primary);
+    }
+
+    .parsed-output {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.95rem;
+      font-family: var(--font-mono);
+      font-size: 0.81rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .kv-line {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 0.3rem;
+    }
+
+    .kv-line:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* Skills & Education Section */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.35rem;
+    }
+
+    @media (max-width: 880px) {
+      .two-col-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+
+    .skill-group {
+      margin-bottom: 1.15rem;
+    }
+
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-group-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1.35rem;
+      margin-bottom: 1.25rem;
+      border-left: 2px solid var(--border-color);
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-primary);
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .timeline-sub {
+      font-size: 0.86rem;
+      color: var(--accent-primary);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+    }
+
+    /* Footer / Contact */
+    footer.footer {
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0 3rem;
+      background: var(--bg-secondary);
+    }
+
+    .contact-banner {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--accent-dev);
+      color: #0b0f19;
+      font-weight: 700;
+      padding: 0.65rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      z-index: 999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  <div class="ambient-glow-left"></div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-badge">AP</div>
+        <div>
+          <div>Atsadawut Prasankham</div>
+          <div style="font-size: 0.74rem; color: var(--text-muted); font-weight: 500;" data-i18n="nav_sub">Data Science & Software Innovation · UBU</div>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#roles" data-i18n="nav_roles">Target Roles</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="#sandbox" data-i18n="nav_sandbox">Interactive Demo</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Skills & Education</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-controls">
+        <button class="btn-chip" id="langToggle" onclick="toggleLanguage()" title="Switch Language (TH/EN)">
+          <span>🌐</span> <span id="langLabel">TH / ไทย</span>
+        </button>
+        <button class="btn-chip" id="themeToggle" onclick="toggleTheme()" title="Switch Dark/Light Theme">
+          <span id="themeIcon">☀️</span> <span id="themeLabel">Light</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div>
+        <div class="availability-pill">
+          <span class="pulse-dot"></span>
+          <span data-i18n="hero_avail">Available for Internship: Nov 2026 – Mar 2027</span>
+        </div>
+
+        <h1>
+          <span data-i18n="hero_greeting">Hi, I'm</span> <span class="gradient-text" data-i18n="hero_name">Atsadawut Prasankham</span>
+        </h1>
+
+        <p class="hero-subtitle" id="heroDynamicPitch">
+          Final-year Data Science and Software Innovation student at Ubon Ratchathani University. Passionate about turning raw datasets into actionable business insights, building full-stack Python & Django web applications, and ensuring reliable data & system quality.
+        </p>
+
+        <div class="priority-strip-label">
+          <span data-i18n="filter_label">Click to tailor portfolio view by internship priority:</span>
+        </div>
+
+        <div class="role-selector" role="tablist">
+          <button class="role-tab active" onclick="setRoleView('all')" id="tab-all">
+            <span data-i18n="role_all">All Roles Overview</span>
+          </button>
+          <button class="role-tab" onclick="setRoleView('da')" id="tab-da">
+            <span class="rank-badge">#1</span> <span data-i18n="role_da">Data Analyst (DA)</span>
+          </button>
+          <button class="role-tab" onclick="setRoleView('web')" id="tab-web">
+            <span class="rank-badge">#2</span> <span data-i18n="role_web">Web Developer</span>
+          </button>
+          <button class="role-tab" onclick="setRoleView('dev')" id="tab-dev">
+            <span class="rank-badge">#3</span> <span data-i18n="role_dev">Software Developer</span>
+          </button>
+          <button class="role-tab" onclick="setRoleView('qa')" id="tab-qa">
+            <span class="rank-badge">#4</span> <span data-i18n="role_qa">QA & Testing</span>
+          </button>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            <span>🚀</span> <span data-i18n="btn_explore">Explore Projects</span>
+          </a>
+          <a href="https://github.com/ManYaiMark" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <span>💻</span> <span>GitHub (ManYaiMark)</span>
+          </a>
+          <a href="https://docs.google.com/document/d/15T5NsIYkHv8B-dfSgYsCciFCTAziuxdzB-f8BqPyRA8/edit" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <span>📄</span> <span data-i18n="btn_resume_da">Resume (DA)</span>
+          </a>
+          <button class="btn-secondary" onclick="copyEmail()">
+            <span>📋</span> <span data-i18n="btn_copy_email">Copy Email</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Profile Summary Card -->
+      <aside class="profile-card">
+        <div class="profile-header">
+          <div>
+            <h2 data-i18n="card_title">Candidate Snapshot</h2>
+            <div style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="card_sub">อัษฏาวุธ ประสารคำ (Atsadawut)</div>
+          </div>
+          <span class="uni-tag">UBU · Senior</span>
+        </div>
+
+        <div class="quick-facts">
+          <div class="fact-row">
+            <span class="fact-label" data-i18n="fact_uni_label">University</span>
+            <span class="fact-value" data-i18n="fact_uni_val">Ubon Ratchathani University</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label" data-i18n="fact_major_label">Major</span>
+            <span class="fact-value" data-i18n="fact_major_val">Data Science & Software Innovation</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label" data-i18n="fact_period_label">Internship Window</span>
+            <span class="fact-value" style="color: var(--accent-dev);" data-i18n="fact_period_val">Nov 2026 – Mar 2027</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label" data-i18n="fact_stack_label">Core Stack</span>
+            <span class="fact-value">Python · SQL · Pandas · Django</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">GitHub</span>
+            <span class="fact-value"><a href="https://github.com/ManYaiMark" target="_blank" rel="noopener noreferrer">github.com/ManYaiMark</a></span>
+          </div>
+        </div>
+
+        <div class="priority-bars">
+          <div class="priority-bars-title" data-i18n="pref_heading">Target Role Preference & Alignment</div>
+
+          <div class="p-bar-item">
+            <div class="p-bar-top">
+              <span>#1 Data Analyst (DA)</span>
+              <span style="color: var(--accent-da);" data-i18n="p1_tag">Top Priority</span>
+            </div>
+            <div class="p-bar-track">
+              <div class="p-bar-fill" style="width: 100%; background: var(--accent-da);"></div>
+            </div>
+          </div>
+
+          <div class="p-bar-item">
+            <div class="p-bar-top">
+              <span>#2 Web Developer (Django / Full-Stack)</span>
+              <span style="color: var(--accent-web);" data-i18n="p2_tag">High Interest</span>
+            </div>
+            <div class="p-bar-track">
+              <div class="p-bar-fill" style="width: 88%; background: var(--accent-web);"></div>
+            </div>
+          </div>
+
+          <div class="p-bar-item">
+            <div class="p-bar-top">
+              <span>#3 Software Developer (Python / Backend)</span>
+              <span style="color: var(--accent-dev);" data-i18n="p3_tag">Strong Fit</span>
+            </div>
+            <div class="p-bar-track">
+              <div class="p-bar-fill" style="width: 82%; background: var(--accent-dev);"></div>
+            </div>
+          </div>
+
+          <div class="p-bar-item" style="margin-bottom: 0;">
+            <div class="p-bar-top">
+              <span>#4 Quality Assurance (QA / Data Audit)</span>
+              <span style="color: var(--accent-qa);" data-i18n="p4_tag">Ready to Contribute</span>
+            </div>
+            <div class="p-bar-track">
+              <div class="p-bar-fill" style="width: 75%; background: var(--accent-qa);"></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Section 1: 4 Target Roles Breakdown -->
+    <section id="roles">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow" data-i18n="sec1_eyebrow">Internship Role Alignment</div>
+          <h2 class="section-title" data-i18n="sec1_title">How My Skills Fit Your Team (By Priority)</h2>
+        </div>
+        <p class="section-desc" data-i18n="sec1_desc">
+          Click any role card below to filter my projects and technical highlights for that specific track.
+        </p>
+      </div>
+
+      <div class="roles-grid">
+        <!-- Role 1: DA -->
+        <div class="role-card" id="card-da" onclick="setRoleView('da')">
+          <div class="role-card-top">
+            <span class="role-priority-tag tag-p1">PRIORITY #1</span>
+            <span>📊</span>
+          </div>
+          <h3 data-i18n="r1_title">Data Analyst (DA)</h3>
+          <p data-i18n="r1_desc">
+            Transforming raw datasets into actionable business insights via data cleaning, SQL querying, Exploratory Data Analysis (EDA), ETL pipelines, and automated dashboards.
+          </p>
+          <div class="mini-tags">
+            <span class="mini-tag">Python (Pandas)</span>
+            <span class="mini-tag">Matplotlib</span>
+            <span class="mini-tag">SQL / SQLite</span>
+            <span class="mini-tag">ETL & Cleaning</span>
+            <span class="mini-tag">EDA</span>
+          </div>
+        </div>
+
+        <!-- Role 2: Web Dev -->
+        <div class="role-card" id="card-web" onclick="setRoleView('web')">
+          <div class="role-card-top">
+            <span class="role-priority-tag tag-p2">PRIORITY #2</span>
+            <span>🌐</span>
+          </div>
+          <h3 data-i18n="r2_title">Web Developer</h3>
+          <p data-i18n="r2_desc">
+            Building responsive, end-to-end web applications with Django views and templates, Bootstrap dashboards, OAuth authentication, and intuitive user workflows.
+          </p>
+          <div class="mini-tags">
+            <span class="mini-tag">Django</span>
+            <span class="mini-tag">HTML5 & CSS3</span>
+            <span class="mini-tag">Bootstrap</span>
+            <span class="mini-tag">django-allauth</span>
+            <span class="mini-tag">Admin Views</span>
+          </div>
+        </div>
+
+        <!-- Role 3: Software Dev -->
+        <div class="role-card" id="card-dev" onclick="setRoleView('dev')">
+          <div class="role-card-top">
+            <span class="role-priority-tag tag-p3">PRIORITY #3</span>
+            <span>⚙️</span>
+          </div>
+          <h3 data-i18n="r3_title">Software Developer</h3>
+          <p data-i18n="r3_desc">
+            Designing relational database schemas, backend business logic, NLP text-parsing import pipelines (Excel/CSV/TXT), and POS/loyalty accrual engines.
+          </p>
+          <div class="mini-tags">
+            <span class="mini-tag">Python</span>
+            <span class="mini-tag">System Architecture</span>
+            <span class="mini-tag">Database Design</span>
+            <span class="mini-tag">NLP Parsing</span>
+          </div>
+        </div>
+
+        <!-- Role 4: QA -->
+        <div class="role-card" id="card-qa" onclick="setRoleView('qa')">
+          <div class="role-card-top">
+            <span class="role-priority-tag tag-p4">PRIORITY #4</span>
+            <span>🛡️</span>
+          </div>
+          <h3 data-i18n="r4_title">QA & System Testing</h3>
+          <p data-i18n="r4_desc">
+            Ensuring data pipeline accuracy, auditing historical user & inventory logs, monitoring overdue/edge-case patterns, and debugging end-to-end transaction flows.
+          </p>
+          <div class="mini-tags">
+            <span class="mini-tag">Data Validation</span>
+            <span class="mini-tag">Debugging</span>
+            <span class="mini-tag">Audit Reporting</span>
+            <span class="mini-tag">Edge-Case Checks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Featured Projects -->
+    <section id="projects">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow" data-i18n="sec2_eyebrow">Featured Portfolio Projects</div>
+          <h2 class="section-title" data-i18n="sec2_title">Real-World Systems & Analytics Pipelines</h2>
+        </div>
+        <p class="section-desc" id="projectLensIndicator">
+          Showing highlights across Data Analytics, Web Development, Backend Architecture, and Quality Assurance.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: MoneyMind -->
+        <article class="project-card">
+          <div>
+            <div class="project-top">
+              <div>
+                <h3 class="project-title">MoneyMind</h3>
+                <div class="project-tagline" data-i18n="p1_sub">Personal Financial Analytics & Automated ETL Platform</div>
+              </div>
+              <a href="https://github.com/ManYaiMark/MoneyMind" target="_blank" rel="noopener noreferrer" class="github-link-pill">
+                GitHub ↗
+              </a>
+            </div>
+
+            <div class="project-lens-box">
+              <span class="lens-badge" id="p1-lens-label">DATA ANALYST & FULL-STACK HIGHLIGHTS</span>
+              <ul class="project-bullets" id="p1-bullets">
+                <li>Built an interactive financial analytics dashboard using Python, Pandas, and SQLite to track spending trends and visualize transaction patterns.</li>
+                <li>Engineered an automated ETL and Smart Input data pipeline (NLP parsing, Excel/CSV/TXT) for cleaning, categorizing, and importing raw financial records.</li>
+                <li>Designed budget tracking metrics, category-level aggregation models, and Google OAuth (django-allauth) user management.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tech-stack-row">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Pandas</span>
+            <span class="tech-pill">Django</span>
+            <span class="tech-pill">SQLite</span>
+            <span class="tech-pill">NLP ETL</span>
+            <span class="tech-pill">Bootstrap</span>
+          </div>
+        </article>
+
+        <!-- Project 2: dstoolbox -->
+        <article class="project-card">
+          <div>
+            <div class="project-top">
+              <div>
+                <h3 class="project-title">dstoolbox</h3>
+                <div class="project-tagline" data-i18n="p2_sub">Restaurant POS, Sales Analytics & Loyalty System</div>
+              </div>
+              <a href="https://github.com/ManYaiMark/dstoolbox" target="_blank" rel="noopener noreferrer" class="github-link-pill">
+                GitHub ↗
+              </a>
+            </div>
+
+            <div class="project-lens-box">
+              <span class="lens-badge" id="p2-lens-label">DATA ANALYST & FULL-STACK HIGHLIGHTS</span>
+              <ul class="project-bullets" id="p2-bullets">
+                <li>Developed an admin sales analytics dashboard using Matplotlib to visualize revenue trends, top-selling products, and order-status distributions.</li>
+                <li>Analyzed customer purchasing behavior by designing a loyalty points, coupon redemption, and order-based accrual tracking system.</li>
+                <li>Structured relational database schemas in Django to capture POS transactions, cart conversions, and session-level user activity.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tech-stack-row">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Matplotlib</span>
+            <span class="tech-pill">Django POS</span>
+            <span class="tech-pill">SQL Schema</span>
+            <span class="tech-pill">Session Auth</span>
+          </div>
+        </article>
+
+        <!-- Project 3: Borrowing -->
+        <article class="project-card">
+          <div>
+            <div class="project-top">
+              <div>
+                <h3 class="project-title">Borrowing</h3>
+                <div class="project-tagline" data-i18n="p3_sub">Library Inventory Circulation & Audit System</div>
+              </div>
+              <a href="https://github.com/ManYaiMark/Borrowing" target="_blank" rel="noopener noreferrer" class="github-link-pill">
+                GitHub ↗
+              </a>
+            </div>
+
+            <div class="project-lens-box">
+              <span class="lens-badge" id="p3-lens-label">DATA ANALYST & FULL-STACK HIGHLIGHTS</span>
+              <ul class="project-bullets" id="p3-bullets">
+                <li>Designed and managed a relational SQLite database to track library inventory status, book circulation, and historical borrowing trends.</li>
+                <li>Built admin reporting views to audit user borrowing history, monitor overdue patterns, and optimize inventory availability.</li>
+                <li>Implemented end-to-end data capture workflows and borrow flows using Python, Django views, and templates for real-time logging.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tech-stack-row">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">SQLite</span>
+            <span class="tech-pill">Django Admin</span>
+            <span class="tech-pill">Audit Views</span>
+            <span class="tech-pill">HTML/CSS</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section 3: Interactive Demo Sandbox -->
+    <section id="sandbox">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow" data-i18n="sec3_eyebrow">Interactive Capabilities Demo</div>
+          <h2 class="section-title" data-i18n="sec3_title">Live Data Analytics & Smart ETL Simulator</h2>
+        </div>
+        <p class="section-desc" data-i18n="sec3_desc">
+          Test interactive modules modeled directly after my MoneyMind, dstoolbox, and Borrowing project architectures.
+        </p>
+      </div>
+
+      <div class="sandbox-grid">
+        <!-- Left: Interactive Analytics Explorer -->
+        <div class="sandbox-card">
+          <div class="sandbox-header">
+            <div>
+              <h3 style="font-size: 1.08rem; font-weight: 700;" data-i18n="demo1_title">📊 Project Analytics Visualization</h3>
+              <div style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="demo1_sub">Select a project domain to inspect sample analytical metrics</div>
+            </div>
+            <div class="dataset-tabs">
+              <button class="dataset-btn active" id="ds-btn-moneymind" onclick="switchDataset('moneymind')">MoneyMind</button>
+              <button class="dataset-btn" id="ds-btn-dstoolbox" onclick="switchDataset('dstoolbox')">dstoolbox POS</button>
+              <button class="dataset-btn" id="ds-btn-borrowing" onclick="switchDataset('borrowing')">Borrowing Audit</button>
+            </div>
+          </div>
+
+          <div class="chart-bars-container" id="chartContainer">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="insight-callout" id="chartInsight">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Right: Smart Input NLP ETL & QA Validator -->
+        <div class="sandbox-card">
+          <div class="sandbox-header">
+            <div>
+              <h3 style="font-size: 1.08rem; font-weight: 700;" data-i18n="demo2_title">⚡ Smart Input ETL & QA Validator</h3>
+              <div style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="demo2_sub">Simulates MoneyMind's NLP text parsing & data cleaning pipeline</div>
+            </div>
+          </div>
+
+          <div class="parser-input-group">
+            <input type="text" id="nlpInput" class="parser-input" value="2026-10-15 Lunch Pad Thai 65 THB #Food" oninput="runNlpParser()" placeholder="Type raw transaction record..." />
+          </div>
+
+          <div class="preset-pills">
+            <button class="preset-pill" onclick="setSampleInput('2026-10-15 Lunch Pad Thai 65 THB #Food')">🍜 Food 65 THB</button>
+            <button class="preset-pill" onclick="setSampleInput('2026-10-14 Bus Ticket UBU 40 THB #Transport')">🚌 Transport 40 THB</button>
+            <button class="preset-pill" onclick="setSampleInput('2026-10-12 Freelance Web Script +1500 THB #Income')">💰 Income +1500 THB</button>
+            <button class="preset-pill" onclick="setSampleInput('INVALID_ROW_MISSING_AMOUNT #ErrorTest')">🛡️ QA Edge Case Test</button>
+          </div>
+
+          <div class="parsed-output" id="parsedOutput">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Technical Skills & Education / Hackathon -->
+    <section id="skills">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow" data-i18n="sec4_eyebrow">Competencies & Background</div>
+          <h2 class="section-title" data-i18n="sec4_title">Technical Skills, Education & Hackathon</h2>
+        </div>
+      </div>
+
+      <div class="two-col-grid">
+        <!-- Left: Structured Skills Matrix -->
+        <div class="info-card">
+          <div class="skill-group">
+            <div class="skill-group-title">
+              <span style="color: var(--accent-da);">●</span>
+              <span data-i18n="sk_cat1">Data Analysis & Visualization (Priority #1)</span>
+            </div>
+            <div class="tech-stack-row" style="border-top: none; padding-top: 0.2rem;">
+              <span class="tech-pill">Python (Pandas)</span>
+              <span class="tech-pill">Matplotlib</span>
+              <span class="tech-pill">Exploratory Data Analysis (EDA)</span>
+              <span class="tech-pill">Dashboard Design</span>
+              <span class="tech-pill">Business Insight Generation</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">
+              <span style="color: var(--accent-dev);">●</span>
+              <span data-i18n="sk_cat2">Databases & Data Processing (ETL)</span>
+            </div>
+            <div class="tech-stack-row" style="border-top: none; padding-top: 0.2rem;">
+              <span class="tech-pill">SQL</span>
+              <span class="tech-pill">SQLite</span>
+              <span class="tech-pill">Data Cleaning</span>
+              <span class="tech-pill">ETL Import Pipelines (Excel/CSV/TXT)</span>
+              <span class="tech-pill">NLP Text Parsing</span>
+              <span class="tech-pill">Relational Schema Design</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">
+              <span style="color: var(--accent-web);">●</span>
+              <span data-i18n="sk_cat3">Web Development & Frameworks</span>
+            </div>
+            <div class="tech-stack-row" style="border-top: none; padding-top: 0.2rem;">
+              <span class="tech-pill">Django (Views, Templates, Admin)</span>
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">Bootstrap</span>
+              <span class="tech-pill">Google OAuth (django-allauth)</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">
+              <span style="color: var(--accent-qa);">●</span>
+              <span data-i18n="sk_cat4">Architecture, QA & Core Competencies</span>
+            </div>
+            <div class="tech-stack-row" style="border-top: none; padding-top: 0.2rem;">
+              <span class="tech-pill">System Architecture</span>
+              <span class="tech-pill">Analytical Thinking</span>
+              <span class="tech-pill">Debugging & Auditing</span>
+              <span class="tech-pill">System Optimization</span>
+              <span class="tech-pill">Problem-Solving</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Education & Activities Timeline -->
+        <div class="info-card">
+          <div class="timeline-item">
+            <div class="timeline-title" data-i18n="edu_uni">Ubon Ratchathani University (มหาวิทยาลัยอุบลราชธานี)</div>
+            <div class="timeline-sub" data-i18n="edu_deg">B.Sc. in Data Science and Software Innovation (Final-Year Student)</div>
+            <p class="timeline-desc" data-i18n="edu_desc">
+              Focused on data analytics, statistical modeling, relational database architecture, and full-stack software engineering with Python and Django. Available for full-time internship from November 2026 to March 2027.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title" data-i18n="hack_title">Data Analysis Competition — Hackathon Participant</div>
+            <div class="timeline-sub" data-i18n="hack_org">Ubon Ratchathani University</div>
+            <p class="timeline-desc" data-i18n="hack_desc">
+              Participated in a university-wide data analysis hackathon investigating campus WiFi usage patterns. Collaborated in a team to clean datasets, analyze peak utilization trends, and propose data-driven optimization solutions using Python.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title" data-i18n="doc_title">Verified Resume Documents (Google Docs)</div>
+            <div class="timeline-sub" data-i18n="doc_sub">Direct links for recruiters & HR teams</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+              <a href="https://docs.google.com/document/d/15T5NsIYkHv8B-dfSgYsCciFCTAziuxdzB-f8BqPyRA8/edit" target="_blank" rel="noopener noreferrer" class="github-link-pill">
+                📄 Atsadawut Resume DA ↗
+              </a>
+              <a href="https://docs.google.com/document/d/1KvwArRS4oLx_rPxeh9INc8K6fcExpODDaGTv9NioYHg/edit" target="_blank" rel="noopener noreferrer" class="github-link-pill">
+                📄 Atsadawut Resume (IT/Dev) ↗
+              </a>
+              <a href="https://docs.google.com/document/d/1qr06TYQOtPIYkuH1IB1fr1XDVjHOsvEgDkD8HxrN4KY/edit" target="_blank" rel="noopener noreferrer" class="github-link-pill">
+                📄 เรซูเม่ภาษาไทย ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer / Contact -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="contact-banner">
+        <div>
+          <div class="section-eyebrow" data-i18n="contact_eyebrow">Ready to Contribute · Nov 2026 – Mar 2027</div>
+          <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem;" data-i18n="contact_title">Let's Connect for Internship Opportunities</h2>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);" data-i18n="contact_sub">
+            Open to Data Analyst (#1), Web Developer (#2), Software Developer (#3), and QA (#4) internship roles.
+          </p>
+        </div>
+
+        <div class="contact-details">
+          <a href="mailto:atasdwut123@gmail.com" class="btn-primary">
+            <span>✉️</span> <span>atasdwut123@gmail.com</span>
+          </a>
+          <a href="tel:0811643122" class="btn-secondary">
+            <span>📞</span> <span>081-164-3122</span>
+          </a>
+          <a href="https://github.com/ManYaiMark" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <span>🐙</span> <span>github.com/ManYaiMark</span>
+          </a>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--text-muted);">
+        <div>© 2026 Atsadawut Prasankham (อัษฏาวุธ ประสารคำ) · Ubon Ratchathani University</div>
+        <div data-i18n="footer_priority">Internship Priority: 1. Data Analyst (DA) · 2. Web Dev · 3. Software Dev · 4. QA</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toastMsg">Copied atasdwut123@gmail.com to clipboard!</div>
+
+  <script>
+    let currentLang = 'en';
+    let currentRole = 'all';
+    let currentDataset = 'moneymind';
+
+    const i18n = {
+      en: {
+        nav_sub: "Data Science & Software Innovation · UBU",
+        nav_roles: "Target Roles",
+        nav_projects: "Projects",
+        nav_sandbox: "Interactive Demo",
+        nav_skills: "Skills & Education",
+        nav_contact: "Contact",
+        hero_avail: "Available for Internship: Nov 2026 – Mar 2027",
+        hero_greeting: "Hi, I'm",
+        hero_name: "Atsadawut Prasankham",
+        filter_label: "Click to tailor portfolio view by internship priority:",
+        role_all: "All Roles Overview",
+        role_da: "Data Analyst (DA)",
+        role_web: "Web Developer",
+        role_dev: "Software Developer",
+        role_qa: "QA & Testing",
+        btn_explore: "Explore Projects",
+        btn_resume_da: "Resume (DA)",
+        btn_copy_email: "Copy Email",
+        card_title: "Candidate Snapshot",
+        card_sub: "อัษฏาวุธ ประสารคำ (Atsadawut)",
+        fact_uni_label: "University",
+        fact_uni_val: "Ubon Ratchathani University",
+        fact_major_label: "Major",
+        fact_major_val: "Data Science & Software Innovation",
+        fact_period_label: "Internship Window",
+        fact_period_val: "Nov 2026 – Mar 2027",
+        fact_stack_label: "Core Stack",
+        pref_heading: "Target Role Preference & Alignment",
+        p1_tag: "Top Priority",
+        p2_tag: "High Interest",
+        p3_tag: "Strong Fit",
+        p4_tag: "Ready to Contribute",
+        sec1_eyebrow: "Internship Role Alignment",
+        sec1_title: "How My Skills Fit Your Team (By Priority)",
+        sec1_desc: "Click any role card below to filter my projects and technical highlights for that specific track.",
+        r1_title: "Data Analyst (DA)",
+        r1_desc: "Transforming raw datasets into actionable business insights via data cleaning, SQL querying, Exploratory Data Analysis (EDA), ETL pipelines, and automated dashboards.",
+        r2_title: "Web Developer",
+        r2_desc: "Building responsive, end-to-end web applications with Django views and templates, Bootstrap dashboards, OAuth authentication, and intuitive user workflows.",
+        r3_title: "Software Developer",
+        r3_desc: "Designing relational database schemas, backend business logic, NLP text-parsing import pipelines (Excel/CSV/TXT), and POS/loyalty accrual engines.",
+        r4_title: "QA & System Testing",
+        r4_desc: "Ensuring data pipeline accuracy, auditing historical user & inventory logs, monitoring overdue/edge-case patterns, and debugging end-to-end transaction flows.",
+        sec2_eyebrow: "Featured Portfolio Projects",
+        sec2_title: "Real-World Systems & Analytics Pipelines",
+        p1_sub: "Personal Financial Analytics & Automated ETL Platform",
+        p2_sub: "Restaurant POS, Sales Analytics & Loyalty System",
+        p3_sub: "Library Inventory Circulation & Audit System",
+        sec3_eyebrow: "Interactive Capabilities Demo",
+        sec3_title: "Live Data Analytics & Smart ETL Simulator",
+        sec3_desc: "Test interactive modules modeled directly after my MoneyMind, dstoolbox, and Borrowing project architectures.",
+        demo1_title: "📊 Project Analytics Visualization",
+        demo1_sub: "Select a project domain to inspect sample analytical metrics",
+        demo2_title: "⚡ Smart Input ETL & QA Validator",
+        demo2_sub: "Simulates MoneyMind's NLP text parsing & data cleaning pipeline",
+        sec4_eyebrow: "Competencies & Background",
+        sec4_title: "Technical Skills, Education & Hackathon",
+        sk_cat1: "Data Analysis & Visualization (Priority #1)",
+        sk_cat2: "Databases & Data Processing (ETL)",
+        sk_cat3: "Web Development & Frameworks",
+        sk_cat4: "Architecture, QA & Core Competencies",
+        edu_uni: "Ubon Ratchathani University (มหาวิทยาลัยอุบลราชธานี)",
+        edu_deg: "B.Sc. in Data Science and Software Innovation (Final-Year Student)",
+        edu_desc: "Focused on data analytics, statistical modeling, relational database architecture, and full-stack software engineering with Python and Django. Available for full-time internship from November 2026 to March 2027.",
+        hack_title: "Data Analysis Competition — Hackathon Participant",
+        hack_org: "Ubon Ratchathani University",
+        hack_desc: "Participated in a university-wide data analysis hackathon investigating campus WiFi usage patterns. Collaborated in a team to clean datasets, analyze peak utilization trends, and propose data-driven optimization solutions using Python.",
+        doc_title: "Verified Resume Documents (Google Docs)",
+        doc_sub: "Direct links for recruiters & HR teams",
+        contact_eyebrow: "Ready to Contribute · Nov 2026 – Mar 2027",
+        contact_title: "Let's Connect for Internship Opportunities",
+        contact_sub: "Open to Data Analyst (#1), Web Developer (#2), Software Developer (#3), and QA (#4) internship roles.",
+        footer_priority: "Internship Priority: 1. Data Analyst (DA) · 2. Web Dev · 3. Software Dev · 4. QA"
+      },
+      th: {
+        nav_sub: "วิทยาการข้อมูลและนวัตกรรมซอฟต์แวร์ · ม.อุบลฯ",
+        nav_roles: "ตำแหน่งที่สนใจ",
+        nav_projects: "ผลงานโปรเจกต์",
+        nav_sandbox: "ทดลองระบบจำลอง",
+        nav_skills: "ทักษะและการศึกษา",
+        nav_contact: "ติดต่อ",
+        hero_avail: "พร้อมฝึกงาน: พฤศจิกายน 2026 – มีนาคม 2027",
+        hero_greeting: "สวัสดีครับ ผม",
+        hero_name: "อัษฏาวุธ ประสารคำ",
+        filter_label: "คลิกเลือกดูจุดเด่นตามลำดับตำแหน่งฝึกงานที่สนใจ:",
+        role_all: "ภาพรวมทุกตำแหน่ง",
+        role_da: "Data Analyst (อันดับ 1)",
+        role_web: "Web Developer (อันดับ 2)",
+        role_dev: "Software Dev (อันดับ 3)",
+        role_qa: "QA & Testing (อันดับ 4)",
+        btn_explore: "ดูผลงานโปรเจกต์",
+        btn_resume_da: "เรซูเม่ (DA)",
+        btn_copy_email: "คัดลอกอีเมล",
+        card_title: "ข้อมูลสรุปผู้สมัคร",
+        card_sub: "Atsadawut Prasankham",
+        fact_uni_label: "มหาวิทยาลัย",
+        fact_uni_val: "มหาวิทยาลัยอุบลราชธานี",
+        fact_major_label: "สาขาวิชา",
+        fact_major_val: "วิทยาศาสตร์ข้อมูลและนวัตกรรมซอฟต์แวร์ (ปีสุดท้าย)",
+        fact_period_label: "ช่วงเวลาฝึกงาน",
+        fact_period_val: "พ.ย. 2026 – มี.ค. 2027",
+        fact_stack_label: "ทักษะหลัก",
+        pref_heading: "ลำดับความสนใจในการสมัครฝึกงาน",
+        p1_tag: "สนใจเป็นอันดับ 1",
+        p2_tag: "สนใจเป็นอันดับ 2",
+        p3_tag: "สนใจเป็นอันดับ 3",
+        p4_tag: "สนใจเป็นอันดับ 4",
+        sec1_eyebrow: "ความพร้อมตามสายงาน",
+        sec1_title: "ทักษะของผมตอบโจทย์ทีมของคุณอย่างไร (เรียงตามลำดับความสนใจ)",
+        sec1_desc: "คลิกที่การ์ดแต่ละตำแหน่งเพื่อกรองดูรายละเอียดโปรเจกต์และทักษะที่เกี่ยวข้องกับสายงานนั้นโดยเฉพาะ",
+        r1_title: "Data Analyst (DA)",
+        r1_desc: "เปลี่ยนข้อมูลดิบให้เป็น Insight ทางธุรกิจ ด้วยการทำ Data Cleaning, เขียนคำสั่ง SQL, วิเคราะห์ข้อมูลเชิงสำรวจ (EDA), สร้าง ETL Pipeline และทำ Dashboard สรุปผล",
+        r2_title: "Web Developer",
+        r2_desc: "พัฒนาเว็บแอปพลิเคชันแบบครบวงจรด้วย Python และ Django, ออกแบบหน้าเว็บด้วย HTML/CSS/Bootstrap, ระบบล็อกอิน Google OAuth และหน้าจัดการ Admin",
+        r3_title: "Software Developer",
+        r3_desc: "ออกแบบสถาปัตยกรรมระบบและฐานข้อมูลเชิงสัมพันธ์ (SQLite/SQL), พัฒนาระบบหลังบ้าน, ระบบแปลงข้อความ NLP นำเข้าไฟล์ Excel/CSV/TXT และระบบสะสมแต้ม POS",
+        r4_title: "QA & System Testing",
+        r4_desc: "ตรวจสอบความถูกต้องของข้อมูลใน ETL Pipeline, สร้างหน้าตรวจสอบประวัติย้อนหลัง (Audit Views), ตรวจจับข้อมูลผิดปกติ และแก้ไขข้อบกพร่องของระบบ (Debugging)",
+        sec2_eyebrow: "ผลงานโปรเจกต์เด่น",
+        sec2_title: "ระบบงานจริงและการวิเคราะห์ข้อมูลจากโปรเจกต์",
+        p1_sub: "ระบบวิเคราะห์การเงินส่วนบุคคลและนำเข้าข้อมูลอัตโนมัติ (ETL)",
+        p2_sub: "ระบบขายหน้าร้าน (POS) แดชบอร์ดยอดขาย และระบบสะสมแต้ม",
+        p3_sub: "ระบบจัดการคลังหนังสือ ติดตามการยืม-คืน และตรวจสอบประวัติ",
+        sec3_eyebrow: "ส่วนทดลองใช้งานจริง (Interactive)",
+        sec3_title: "จำลองแดชบอร์ดวิเคราะห์ข้อมูล & ระบบแยกข้อความ ETL",
+        sec3_desc: "ทดลองเล่นฟีเจอร์จำลองที่ถอดแบบมาจากโปรเจกต์ MoneyMind, dstoolbox และ Borrowing ของผมได้โดยตรง",
+        demo1_title: "📊 จำลองแดชบอร์ดวิเคราะห์ข้อมูลจากโปรเจกต์",
+        demo1_sub: "เลือกโปรเจกต์เพื่อดูตัวอย่างการสรุปและแสดงผลข้อมูลเชิงวิเคราะห์",
+        demo2_title: "⚡ จำลองระบบ Smart Input ETL & ตรวจสอบข้อมูล (QA)",
+        demo2_sub: "จำลองการแยกข้อความอัตโนมัติ (NLP Parsing) และตรวจเช็กความสมบูรณ์ของข้อมูล",
+        sec4_eyebrow: "ทักษะและประวัติการศึกษา",
+        sec4_title: "ทักษะทางเทคนิค การศึกษา และกิจกรรมการแข่งขัน",
+        sk_cat1: "การวิเคราะห์ข้อมูลและการสร้างภาพข้อมูล (เป้าหมายอันดับ #1)",
+        sk_cat2: "ฐานข้อมูลและการประมวลผลข้อมูล (SQL & ETL)",
+        sk_cat3: "การพัฒนาเว็บและเฟรมเวิร์ก (Web Development)",
+        sk_cat4: "สถาปัตยกรรมระบบ การตรวจสอบคุณภาพ (QA) และการแก้ปัญหา",
+        edu_uni: "มหาวิทยาลัยอุบลราชธานี (Ubon Ratchathani University)",
+        edu_deg: "นักศึกษาชั้นปีสุดท้าย สาขาวิทยาศาสตร์ข้อมูลและนวัตกรรมซอฟต์แวร์",
+        edu_desc: "มุ่งเน้นด้านการวิเคราะห์ข้อมูล สถิติ การออกแบบฐานข้อมูล และการพัฒนาซอฟต์แวร์ครบวงจรด้วย Python และ Django พร้อมเข้าฝึกงานช่วงเดือนพฤศจิกายน 2026 – มีนาคม 2027",
+        hack_title: "ผู้เข้าร่วมแข่งขัน Hackathon — การแข่งขันวิเคราะห์ข้อมูล",
+        hack_org: "มหาวิทยาลัยอุบลราชธานี",
+        hack_desc: "เข้าร่วมการแข่งขันวิเคราะห์ข้อมูลระดับมหาวิทยาลัยในหัวข้อการวิเคราะห์รูปแบบการใช้งานเครือข่าย WiFi ในวิทยาเขต ร่วมกับทีมในการทำ Data Cleaning และวิเคราะห์หาแนวทางปรับปรุงด้วย Python",
+        doc_title: "ไฟล์เรซูเม่ต้นฉบับ (Google Docs)",
+        doc_sub: "ลิงก์เปิดดูเอกสารเรซูเม่โดยตรงสำหรับฝ่ายบุคคลและทีมคัดเลือก",
+        contact_eyebrow: "พร้อมเริ่มฝึกงาน · พ.ย. 2026 – มี.ค. 2027",
+        contact_title: "ติดต่อพูดคุยหรือนัดสัมภาษณ์ฝึกงาน",
+        contact_sub: "สนใจสมัครฝึกงานในตำแหน่ง Data Analyst (#1), Web Developer (#2), Software Developer (#3) และ QA (#4)",
+        footer_priority: "ลำดับตำแหน่งที่สนใจ: 1. Data Analyst (DA) · 2. Web Dev · 3. Software Dev · 4. QA"
+      }
+    };
+
+    const roleContent = {
+      all: {
+        en: {
+          pitch: "Final-year Data Science and Software Innovation student at Ubon Ratchathani University. Seeking an internship (Nov 2026 – Mar 2027) with top priority in Data Analytics (#1), alongside strong project proficiency in Web Development (#2), Software Development (#3), and QA (#4).",
+          indicator: "Showing complete portfolio highlights across Data Analytics (#1), Web Dev (#2), Software Dev (#3), and QA (#4).",
+          lensLabel: "ALL-AROUND HIGHLIGHTS (DA · WEB · DEV · QA)",
+          p1: [
+            "Built an interactive financial analytics dashboard using Python, Pandas, and SQLite to track spending trends and visualize transaction patterns.",
+            "Engineered an automated ETL and Smart Input data pipeline (NLP parsing, Excel/CSV/TXT) for cleaning, categorizing, and importing raw records.",
+            "Integrated Google OAuth (django-allauth) and Bootstrap admin tools for budget tracking and category management."
+          ],
+          p2: [
+            "Developed an admin sales analytics dashboard using Matplotlib to visualize revenue trends, top-selling products, and order-status distributions.",
+            "Designed a customer loyalty points, coupon redemption, and order-based accrual tracking system.",
+            "Implemented a full Django POS web application with cart, order workflows, authentication, and relational database schemas."
+          ],
+          p3: [
+            "Designed and managed a relational SQLite database to track library inventory status, book circulation, and historical borrowing trends.",
+            "Built admin reporting views to audit user borrowing history, monitor overdue patterns, and optimize inventory availability.",
+            "Implemented end-to-end book listings, detail pages, and borrow flows using Python, Django views, and HTML/CSS templates."
+          ]
+        },
+        th: {
+          pitch: "นักศึกษาปีสุดท้าย สาขาวิทยาศาสตร์ข้อมูลและนวัตกรรมซอฟต์แวร์ มหาวิทยาลัยอุบลราชธานี พร้อมฝึกงานช่วง พ.ย. 2026 – มี.ค. 2027 โดยสนใจตำแหน่ง Data Analyst เป็นอันดับ 1 และมีความพร้อมในสาย Web Developer (#2), Software Developer (#3) และ QA (#4)",
+          indicator: "กำลังแสดงจุดเด่นครบทุกด้าน: Data Analytics (#1), Web Dev (#2), Software Dev (#3) และ QA (#4)",
+          lensLabel: "จุดเด่นครบทุกสายงาน (DA · WEB · DEV · QA)",
+          p1: [
+            "สร้างแดชบอร์ดวิเคราะห์การเงินด้วย Python, Pandas และ SQLite เพื่อติดตามแนวโน้มค่าใช้จ่ายและแสดงกราฟธุรกรรม",
+            "พัฒนา ETL Pipeline และระบบ Smart Input (NLP Parsing รองรับ Excel/CSV/TXT) เพื่อทำความสะอาดและจัดหมวดหมู่ข้อมูลอัตโนมัติ",
+            "เชื่อมต่อระบบยืนยันตัวตน Google OAuth (django-allauth) และหน้าจัดการงบประมาณด้วย Django กับ Bootstrap"
+          ],
+          p2: [
+            "พัฒนาแดชบอร์ดวิเคราะห์ยอดขายสำหรับผู้ดูแลระบบด้วย Matplotlib แสดงแนวโน้มรายได้ สินค้าขายดี และสัดส่วนสถานะออเดอร์",
+            "วิเคราะห์พฤติกรรมลูกค้าผ่านการออกแบบระบบสะสมแต้ม แลกคูปองส่วนลด และคำนวณคะแนนตามยอดสั่งซื้อ",
+            "พัฒนาระบบเว็บขายหน้าร้าน (POS) ด้วย Django ครบทั้งตะกร้าสินค้า การจัดการออเดอร์ ระบบสมาชิก และฐานข้อมูลเชิงสัมพันธ์"
+          ],
+          p3: [
+            "ออกแบบและจัดการฐานข้อมูล SQLite เชิงสัมพันธ์เพื่อติดตามสถานะคลังหนังสือ การหมุนเวียนหนังสือ และแนวโน้มการยืมย้อนหลัง",
+            "สร้างหน้ารายงานสำหรับแอดมินเพื่อตรวจสอบประวัติการยืม ติดตามรูปแบบการคืนล่าช้า และบริหารจำนวนหนังสือให้เพียงพอ",
+            "พัฒนาเว็บแอปพลิเคชันแสดงรายการหนังสือ หน้าข้อมูลเชิงลึก และระบบยืม-คืนแบบเรียลไทม์ด้วย Python และ Django"
+          ]
+        }
+      },
+      da: {
+        en: {
+          pitch: "🎯 [Priority #1: Data Analyst Focus] Seeking a Data Analyst internship to apply hands-on skills in data cleaning, SQL querying, statistical analysis, and data visualization—transforming raw datasets into actionable business insights and automated dashboards.",
+          indicator: "Filtered for Priority #1: Data Analyst (SQL, Pandas, Matplotlib, ETL Pipelines & Business Insights).",
+          lensLabel: "📊 DATA ANALYST (DA) HIGHLIGHTS",
+          p1: [
+            "Built an interactive financial analytics dashboard using Python, Pandas, and SQLite to track spending trends and visualize transaction patterns.",
+            "Engineered an automated ETL and Smart Input pipeline (NLP parsing, Excel/CSV/TXT) for cleaning, categorizing, and importing raw financial records.",
+            "Designed budget tracking metrics and category-level aggregation models to help users identify cost-saving opportunities."
+          ],
+          p2: [
+            "Developed an admin sales analytics dashboard using Matplotlib to visualize revenue trends, top-selling products, and order-status distributions.",
+            "Analyzed customer purchasing behavior by designing a loyalty points, coupon redemption, and order-based accrual tracking model.",
+            "Queried relational POS transaction tables to evaluate cart conversions and item-level demand."
+          ],
+          p3: [
+            "Designed and queried a relational SQLite database to track library inventory status, book circulation, and historical borrowing trends.",
+            "Built admin reporting views to analyze user borrowing history, monitor overdue patterns, and optimize inventory availability.",
+            "Structured real-time inventory logging workflows for accurate circulation reporting."
+          ]
+        },
+        th: {
+          pitch: "🎯 [เป้าหมายอันดับ #1: Data Analyst] มุ่งเน้นการนำทักษะ Data Cleaning,การเขียน SQL, การวิเคราะห์ข้อมูลเชิงสำรวจ (EDA) และการสร้าง Visualization ด้วย Python (Pandas, Matplotlib) มาเปลี่ยนข้อมูลดิบให้เป็น Insight ทางธุรกิจและแดชบอร์ดอัตโนมัติ",
+          indicator: "กรองมุมมองสำหรับอันดับ #1: Data Analyst (เน้นการวิเคราะห์ข้อมูล, SQL, Pandas, Matplotlib และ ETL)",
+          lensLabel: "📊 จุดเด่นสาย DATA ANALYST (DA)",
+          p1: [
+            "สร้างแดชบอร์ดวิเคราะห์ข้อมูลทางการเงินด้วย Python, Pandas และ SQLite เพื่อติดตามแนวโน้มการใช้จ่ายและรูปแบบธุรกรรม",
+            "ออกแบบระบบ ETL และ Smart Input อัตโนมัติ (NLP Parsing, นำเข้าไฟล์ Excel/CSV/TXT) สำหรับทำ Data Cleaning และจัดหมวดหมู่ข้อมูลดิบ",
+            "สร้างตัวชี้วัดการใช้งบประมาณ (Budget Metrics) และโมเดลสรุปยอดรายหมวดหมู่เพื่อช่วยค้นหาจุดที่ประหยัดค่าใช้จ่ายได้"
+          ],
+          p2: [
+            "พัฒนาแดชบอร์ดวิเคราะห์ยอดขายด้วย Matplotlib เพื่อแสดงกราฟแนวโน้มรายได้ สินค้าขายดี และการกระจายตัวของสถานะคำสั่งซื้อ",
+            "วิเคราะห์พฤติกรรมการซื้อของลูกค้าด้วยการออกแบบโมเดลสะสมแต้ม การใช้คูปอง และการคำนวณแต้มตามยอดสั่งซื้อ",
+            "จัดโครงสร้างตารางข้อมูลธุรกรรม POS เพื่อใช้วิเคราะห์อัตราการสั่งซื้อและพฤติกรรมผู้ใช้งาน"
+          ],
+          p3: [
+            "ออกแบบฐานข้อมูลเชิงสัมพันธ์ SQLite เพื่อติดตามสถานะคลังหนังสือ อัตราการหมุนเวียนหนังสือ และแนวโน้มการยืมย้อนหลัง",
+            "สร้างหน้ารายงานสรุปสำหรับผู้ดูแลระบบเพื่อวิเคราะห์ประวัติการยืม ติดตามรูปแบบการส่งคืนล่าช้า และวางแผนจัดสรรหนังสือ",
+            "วางระบบบันทึกข้อมูลการยืม-คืนแบบเรียลไทม์เพื่อให้ข้อมูลที่ใช้ทำรายงานมีความแม่นยำสูง"
+          ]
+        }
+      },
+      web: {
+        en: {
+          pitch: "🌐 [Priority #2: Web Developer Focus] Experienced in building responsive full-stack web applications using Python, Django, HTML, CSS, and Bootstrap—featuring OAuth social login, interactive dashboards, and admin management portals.",
+          indicator: "Filtered for Priority #2: Web Developer (Django Views/Templates, HTML/CSS, Bootstrap, Authentication).",
+          lensLabel: "🌐 WEB DEVELOPER HIGHLIGHTS",
+          p1: [
+            "Implemented a responsive Django web application using Bootstrap for interactive financial charts and transaction views.",
+            "Integrated Google OAuth authentication via django-allauth alongside user profile, budget, and category management pages.",
+            "Built multi-format file upload interfaces (Excel/CSV/TXT) and interactive Smart Input web forms."
+          ],
+          p2: [
+            "Implemented a Django-based POS web application complete with interactive shopping cart, order placement, and session management.",
+            "Created secure user authentication flows and customer-facing coupon redemption & loyalty point interfaces.",
+            "Embedded Matplotlib visual analytics directly into custom Django admin dashboard templates."
+          ],
+          p3: [
+            "Developed a full-featured Django library web app with searchable book listings, detail pages, and step-by-step borrowing flows.",
+            "Designed clean HTML/CSS templates and customized Django admin views for librarians and borrowers.",
+            "Connected frontend borrow/return actions seamlessly to SQLite backend updates."
+          ]
+        },
+        th: {
+          pitch: "🌐 [เป้าหมายอันดับ #2: Web Developer] พัฒนาเว็บแอปพลิเคชันแบบ Full-Stack ด้วย Python, Django, HTML, CSS และ Bootstrap รองรับระบบสมาชิก Google OAuth หน้าแดชบอร์ดโต้ตอบ และระบบหลังบ้านสำหรับแอดมิน",
+          indicator: "กรองมุมมองสำหรับอันดับ #2: Web Developer (เน้น Django, HTML/CSS, Bootstrap และระบบ Authentication)",
+          lensLabel: "🌐 จุดเด่นสาย WEB DEVELOPER",
+          p1: [
+            "พัฒนาเว็บแอปด้วย Django และ Bootstrap สำหรับแสดงผลแดชบอร์ดกราฟการเงินและตารางรายการธุรกรรมที่รองรับทุกหน้าจอ",
+            "เชื่อมต่อระบบล็อกอินด้วยบัญชี Google ผ่าน django-allauth พร้อมหน้าจัดการโปรไฟล์ งบประมาณ และหมวดหมู่",
+            "สร้างหน้าเว็บสำหรับอัปโหลดไฟล์หลายนามสกุล (Excel/CSV/TXT) และฟอร์ม Smart Input ที่ใช้งานง่าย"
+          ],
+          p2: [
+            "พัฒนาเว็บแอปขายหน้าร้าน (POS) ด้วย Django มีระบบตะกร้าสินค้า การสั่งอาหาร และการจัดการ Session ของผู้ใช้",
+            "สร้างหน้าเว็บสำหรับระบบสมาชิก การแลกคูปองส่วนลด และการแสดงแต้มสะสมแบบอัปเดตทันที",
+            "ผสานกราฟวิเคราะห์ยอดขายจาก Matplotlib เข้ากับหน้าแดชบอร์ดของแอดมินบนเว็บได้อย่างลงตัว"
+          ],
+          p3: [
+            "พัฒนาเว็บแอปห้องสมุดด้วย Django แสดงรายการหนังสือ หน้าข้อมูลหนังสือแต่ละเล่ม และขั้นตอนการกดยืมผ่านหน้าเว็บ",
+            "ออกแบบโครงสร้างหน้าเว็บด้วย Django Views และ Templates ร่วมกับ HTML/CSS พื้นฐานที่สะอาดตา",
+            "ปรับแต่งระบบ Django Admin เพื่อให้เจ้าหน้าที่จัดการฐานข้อมูลและดูประวัติการยืมได้สะดวก"
+          ]
+        }
+      },
+      dev: {
+        en: {
+          pitch: "⚙️ [Priority #3: Software Developer Focus] Strong foundation in Python software engineering, relational database design, automated text/file processing pipelines, and modular system architecture.",
+          indicator: "Filtered for Priority #3: Software Developer (Python Logic, System Architecture, Relational DB Design, Pipelines).",
+          lensLabel: "⚙️ SOFTWARE DEVELOPER HIGHLIGHTS",
+          p1: [
+            "Architected an automated Python data ingestion pipeline using NLP text parsing and Pandas to process Excel, CSV, and TXT files.",
+            "Designed normalized SQLite schemas supporting multi-user budgets, recurring categories, and transaction aggregation.",
+            "Implemented modular backend services in Django separating ingestion logic from presentation views."
+          ],
+          p2: [
+            "Engineered transactional POS order-processing logic and automated loyalty point accrual calculations in Python.",
+            "Structured relational database schemas capturing orders, line items, coupons, cart conversions, and session state.",
+            "Collaborated in a team environment to design system architecture and integrate backend modules."
+          ],
+          p3: [
+            "Designed relational database tables and foreign-key constraints to maintain strict book circulation and inventory state.",
+            "Implemented backend state transitions for borrowing, returning, and overdue status calculation in Python.",
+            "Built reusable data access workflows ensuring real-time consistency across user and admin operations."
+          ]
+        },
+        th: {
+          pitch: "⚙️ [เป้าหมายอันดับ #3: Software Developer] มีพื้นฐานแข็งแกร่งในการเขียนโปรแกรมภาษา Python การออกแบบสถาปัตยกรรมระบบ การออกแบบฐานข้อมูลเชิงสัมพันธ์ และการสร้าง Pipeline ประมวลผลข้อมูลอัตโนมัติ",
+          indicator: "กรองมุมมองสำหรับอันดับ #3: Software Developer (เน้น Python Backend, System Architecture และ Database Design)",
+          lensLabel: "⚙️ จุดเด่นสาย SOFTWARE DEVELOPER",
+          p1: [
+            "ออกแบบและพัฒนา Pipeline นำเข้าข้อมูลด้วยภาษา Python โดยใช้เทคนิค NLP Parsing แยกข้อความและอ่านไฟล์ Excel/CSV/TXT",
+            "ออกแบบโครงสร้างฐานข้อมูล SQLite เชิงสัมพันธ์เพื่อรองรับข้อมูลผู้ใช้ งบประมาณ และการคำนวณยอดรวมรายหมวดหมู่",
+            "แยกส่วนตรรกะการประมวลผลข้อมูลหลังบ้าน (Backend Logic) ออกจากส่วนแสดงผลอย่างเป็นระบบ"
+          ],
+          p2: [
+            "พัฒนาตรรกะคำนวณยอดสั่งซื้อ ระบบตัดแต้ม/สะสมแต้มอัตโนมัติ และเงื่อนไขการใช้คูปองด้วยภาษา Python",
+            "ออกแบบ Schema ฐานข้อมูลเชิงสัมพันธ์สำหรับเก็บข้อมูลธุรกรรม POS ตะกร้าสินค้า และสถานะออเดอร์",
+            "ทำงานร่วมกับทีมในการวางสถาปัตยกรรมระบบและเชื่อมโยงโมดูลต่างๆ เข้าด้วยกัน"
+          ],
+          p3: [
+            "ออกแบบตารางฐานข้อมูลและความสัมพันธ์ของข้อมูลเพื่อคุมสถานะคลังหนังสือและประวัติการหมุนเวียนอย่างแม่นยำ",
+            "เขียนตรรกะควบคุมสถานะการยืม-คืน และการคำนวณกำหนดส่งคืนด้วย Python และ Django",
+            "วางโครงสร้างการบันทึกข้อมูลแบบ End-to-End เพื่อป้องกันข้อมูลซ้ำซ้อนหรือคลาดเคลื่อน"
+          ]
+        }
+      },
+      qa: {
+        en: {
+          pitch: "🛡️ [Priority #4: QA & System Testing Focus] Detail-oriented problem solver skilled in validating multi-format data imports, auditing transaction & inventory logs, detecting edge-case anomalies, and debugging web workflows.",
+          indicator: "Filtered for Priority #4: Quality Assurance (Data Validation, Audit Views, Debugging & Edge-Case Testing).",
+          lensLabel: "🛡️ QA & SYSTEM QUALITY HIGHLIGHTS",
+          p1: [
+            "Validated multi-format file imports (Excel/CSV/TXT) and NLP text parsing rules to prevent malformed financial records from entering SQLite.",
+            "Verified aggregation accuracy across budget metrics and category summaries against raw transaction logs.",
+            "Tested authentication boundaries and user role permissions across profile and budget management workflows."
+          ],
+          p2: [
+            "Verified POS cart-to-order state transitions, coupon redemption rules, and point accrual calculations for edge-case accuracy.",
+            "Monitored order-status distributions via admin analytics to spot fulfillment bottlenecks or anomalous transactions.",
+            "Debugged multi-user session handling and concurrent cart updates in a collaborative team repository."
+          ],
+          p3: [
+            "Built dedicated admin audit views to inspect user borrowing history, track overdue anomalies, and verify inventory counts.",
+            "Enforced end-to-end data capture validation so book availability statuses remain synchronized during borrow/return cycles.",
+            "Performed systematic debugging and database consistency checks across circulation records."
+          ]
+        },
+        th: {
+          pitch: "🛡️ [เป้าหมายอันดับ #4: QA & Testing] ถนัดการคิดวิเคราะห์ ตรวจสอบความถูกต้องของข้อมูล (Data Validation) การสร้างหน้ารายงานตรวจสอบประวัติ (Audit) การหาข้อบกพร่อง (Debugging) และการปรับปรุงคุณภาพระบบ",
+          indicator: "กรองมุมมองสำหรับอันดับ #4: QA & System Testing (เน้นการตรวจสอบข้อมูล, Audit Log และการหาข้อบกพร่อง)",
+          lensLabel: "🛡️ จุดเด่นสาย QA & SYSTEM QUALITY",
+          p1: [
+            "ตรวจสอบความถูกต้องของการนำเข้าไฟล์หลายรูปแบบ (Excel/CSV/TXT) และการแยกข้อความ NLP เพื่อป้องกันข้อมูลผิดพลาดลงฐานข้อมูล",
+            "เทียบเคียงความแม่นยำของสูตรคำนวณงบประมาณและยอดรวมรายหมวดหมู่กับรายการธุรกรรมดิบ",
+            "ทดสอบสิทธิ์การเข้าถึงข้อมูลของผู้ใช้แต่ละบัญชีและระบบยืนยันตัวตนให้ทำงานได้อย่างปลอดภัย"
+          ],
+          p2: [
+            "ทดสอบเงื่อนไขการคำนวณราคาในตะกร้าสินค้า การใช้คูปองส่วนลด และการสะสมแต้มในกรณีขอบเขต (Edge Cases)",
+            "ใช้กราฟสัดส่วนสถานะออเดอร์ในหน้าแอดมินเพื่อตรวจสอบความผิดปกติของรายการสั่งซื้อ",
+            "ค้นหาและแก้ไขข้อบกพร่อง (Debugging) ของระบบจัดการ Session และการทำงานร่วมกันในโปรเจกต์กลุ่ม"
+          ],
+          p3: [
+            "สร้างหน้ารายงานตรวจสอบ (Audit Views) สำหรับแอดมินเพื่อตรวจทานประวัติการยืมและติดตามรายการหนังสือที่เกินกำหนดส่ง",
+            "ควบคุมความถูกต้องของการบันทึกข้อมูลตั้งแต่ต้นทางถึงปลายทางเพื่อให้ยอดคงเหลือในคลังตรงกับความเป็นจริงเสมอ",
+            "ตรวจสอบความสอดคล้องของข้อมูลในฐานข้อมูล SQLite และปรับปรุงประสิทธิภาพการทำงานของระบบ"
+          ]
+        }
+      }
+    };
+
+    const datasets = {
+      moneymind: {
+        bars: [
+          { label: "Food & Dining", pct: 78, val: "4,680 THB" },
+          { label: "Transport & Campus", pct: 42, val: "2,520 THB" },
+          { label: "Study & Books", pct: 30, val: "1,800 THB" },
+          { label: "Savings / Budget Left", pct: 65, val: "3,900 THB" }
+        ],
+        insight_en: "💡 MoneyMind Analytical Insight: Automated Pandas aggregation flags Food & Dining as 44% of monthly outflow, recommending a 15% category cap to boost monthly savings.",
+        insight_th: "💡 ข้อมูลเชิงลึกจาก MoneyMind: ระบบวิเคราะห์ด้วย Pandas พบว่าหมวดอาหารคิดเป็น 44% ของรายจ่ายทั้งหมด พร้อมแนะนำเพดานงบรายหมวดหมู่เพื่อเพิ่มเงินออม"
+      },
+      dstoolbox: {
+        bars: [
+          { label: "Completed Orders", pct: 88, val: "142 Orders" },
+          { label: "Loyalty Point Redemptions", pct: 64, val: "58 Orders" },
+          { label: "Coupon Conversion Rate", pct: 52, val: "52.0%" },
+          { label: "Repeat Customer Sessions", pct: 74, val: "74.0%" }
+        ],
+        insight_en: "💡 dstoolbox POS Insight: Matplotlib sales distribution shows customers using loyalty points & coupons have a 74% repeat session rate across restaurant orders.",
+        insight_th: "💡 ข้อมูลเชิงลึกจาก dstoolbox: แดชบอร์ด Matplotlib ชี้ให้เห็นว่ากลุ่มลูกค้าที่ใช้ระบบสะสมแต้มและคูปองมีอัตราการกลับมาสั่งซ้ำสูงถึง 74%"
+      },
+      borrowing: {
+        bars: [
+          { label: "Active Available Stock", pct: 84, val: "312 Books" },
+          { label: "Currently Borrowed", pct: 48, val: "89 Books" },
+          { label: "Returned On-Time Rate", pct: 92, val: "92.4%" },
+          { label: "Overdue Audit Alerts", pct: 16, val: "7 Flagged" }
+        ],
+        insight_en: "💡 Borrowing Audit Insight: Relational SQLite audit views automatically isolate 7 overdue circulation records for immediate librarian follow-up.",
+        insight_th: "💡 ข้อมูลเชิงลึกจาก Borrowing: หน้าตรวจสอบประวัติของแอดมินช่วยคัดกรองรายการยืมที่เกินกำหนด 7 รายการขึ้นมาแจ้งเตือนอย่างแม่นยำ"
+      }
+    };
+
+    function renderRoleView() {
+      const data = roleContent[currentRole][currentLang];
+      document.getElementById('heroDynamicPitch').textContent = data.pitch;
+      document.getElementById('projectLensIndicator').textContent = data.indicator;
+      document.getElementById('p1-lens-label').textContent = data.lensLabel;
+      document.getElementById('p2-lens-label').textContent = data.lensLabel;
+      document.getElementById('p3-lens-label').textContent = data.lensLabel;
+
+      const fillBullets = (id, arr) => {
+        const ul = document.getElementById(id);
+        ul.innerHTML = arr.map(item => `<li>${item}</li>`).join('');
+      };
+      fillBullets('p1-bullets', data.p1);
+      fillBullets('p2-bullets', data.p2);
+      fillBullets('p3-bullets', data.p3);
+
+      ['all', 'da', 'web', 'dev', 'qa'].forEach(r => {
+        const tab = document.getElementById('tab-' + r);
+        if (tab) tab.classList.toggle('active', r === currentRole);
+        const card = document.getElementById('card-' + r);
+        if (card) card.classList.toggle('highlighted', r === currentRole);
+      });
+    }
+
+    function setRoleView(role) {
+      currentRole = role;
+      renderRoleView();
+    }
+
+    function switchDataset(ds) {
+      currentDataset = ds;
+      ['moneymind', 'dstoolbox', 'borrowing'].forEach(k => {
+        document.getElementById('ds-btn-' + k).classList.toggle('active', k === ds);
+      });
+      const data = datasets[ds];
+      const container = document.getElementById('chartContainer');
+      container.innerHTML = data.bars.map(b => `
+        <div class="chart-row">
+          <span style="color: var(--text-secondary); font-weight: 600;">${b.label}</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: ${b.pct}%;"></div>
+          </div>
+          <span style="font-family: var(--font-mono); text-align: right; font-weight: 700;">${b.val}</span>
+        </div>
+      `).join('');
+      document.getElementById('chartInsight').textContent = currentLang === 'en' ? data.insight_en : data.insight_th;
+    }
+
+    function setSampleInput(str) {
+      document.getElementById('nlpInput').value = str;
+      runNlpParser();
+    }
+
+    function runNlpParser() {
+      const raw = document.getElementById('nlpInput').value.trim();
+      const dateMatch = raw.match(/\b(20\d{2}-\d{2}-\d{2})\b/);
+      const amountMatch = raw.match(/([+-]?\d+(?:\.\d+)?)\s*(?:THB|บาท)?/i);
+      const tagMatch = raw.match(/#([A-Za-z0-9_ก-๙]+)/);
+
+      const dateVal = dateMatch ? dateMatch[1] : (currentLang === 'en' ? 'Default: Today (Auto-filled)' : 'ค่าเริ่มต้น: วันนี้ (เติมอัตโนมัติ)');
+      let amountVal = null;
+      if (amountMatch && !raw.includes('MISSING_AMOUNT')) {
+        amountVal = parseFloat(amountMatch[1]);
+      }
+      const categoryVal = tagMatch ? tagMatch[1] : 'Uncategorized';
+      const isIncome = raw.includes('+') || /income|freelance|salary|รายรับ/i.test(raw);
+      const txType = isIncome ? 'INCOME (+)' : 'EXPENSE (-)';
+
+      const isValid = amountVal !== null && !isNaN(amountVal) && raw.length > 3;
+      const statusBadge = isValid
+        ? `<span style="color: var(--accent-dev); font-weight: 700;">✔ PASS (Ready for SQLite Insert)</span>`
+        : `<span style="color: var(--accent-qa); font-weight: 700;">⚠ QA FLAGGED: Missing Numeric Amount</span>`;
+
+      document.getElementById('parsedOutput').innerHTML = `
+        <div class="kv-line"><span style="color: var(--text-muted);">parsed_date:</span><span>${dateVal}</span></div>
+        <div class="kv-line"><span style="color: var(--text-muted);">transaction_type:</span><span>${txType}</span></div>
+        <div class="kv-line"><span style="color: var(--text-muted);">extracted_amount:</span><span>${amountVal !== null ? amountVal.toFixed(2) + ' THB' : 'NULL'}</span></div>
+        <div class="kv-line"><span style="color: var(--text-muted);">category_tag:</span><span>${categoryVal}</span></div>
+        <div class="kv-line"><span style="color: var(--text-muted);">qa_pipeline_check:</span>${statusBadge}</div>
+      `;
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'th' : 'en';
+      document.getElementById('langLabel').textContent = currentLang === 'en' ? 'TH / ไทย' : 'EN / อังกฤษ';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[currentLang][key]) {
+          el.textContent = i18n[currentLang][key];
+        }
+      });
+      renderRoleView();
+      switchDataset(currentDataset);
+      runNlpParser();
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('themeIcon').textContent = next === 'dark' ? '☀️' : '🌙';
+      document.getElementById('themeLabel').textContent = next === 'dark' ? 'Light' : 'Dark';
+    }
+
+    function copyEmail() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText('atasdwut123@gmail.com');
+      }
+      const toast = document.getElementById('toastMsg');
+      toast.textContent = currentLang === 'en'
+        ? 'Copied atasdwut123@gmail.com to clipboard!'
+        : 'คัดลอกอีเมล atasdwut123@gmail.com เรียบร้อยแล้ว!';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    // Initialize views on load
+    renderRoleView();
+    switchDataset('moneymind');
+    runNlpParser();
+  </script>
+</body>
+</html>
